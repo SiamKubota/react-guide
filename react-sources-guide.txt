@@ -1,0 +1,20 @@
+NodeJS (JS runtime for running React - Recommended using LTS version)
+https://nodejs.org/en
+
+Vite (Tool for create react template)
+https://vitejs.dev/guide/#scaffolding-your-first-vite-project
+- After run "npm create vite@latest"
+	1) Naming project
+	2) framework => react
+	3) variant => javascript or javascript + swc
+		Ref: SWC -> https://swc.rs/
+	cd {project-name}
+	npm install
+	npm run dev
+
+- Open browser and go to localhost:3000
+
+React (JS Library for create UI)
+https://react.dev/
+- "useState"
+https://react.dev/reference/react/useState
