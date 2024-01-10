@@ -4,8 +4,7 @@
 > **Ref**: [NodeJS](https://nodejs.org/en)
 
 ### Vite (Tool for create react template)
-> **Ref**: [Vite](https://vitejs.dev/)
-> **Installation**: [Scaffolding Your First Vite Project](https://vitejs.dev/guide/#scaffolding-your-first-vite-project)
+> **Ref**: [Vite](https://vitejs.dev/) => **Installation**: [Scaffolding Your First Vite Project](https://vitejs.dev/guide/#scaffolding-your-first-vite-project)
 - After run "**npm create vite@latest**"
 	1) Naming project
 	2) framework => react
