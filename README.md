@@ -13,7 +13,7 @@
 - cd **your-project-name**
 - npm install
 - npm run dev
-- Open browser and go to **localhost:3000**
+- Open browser and go to **localhost:5173**
 
 ### React (JS Library for create UI)
 > **Ref**: [React](https://react.dev/)
