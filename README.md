@@ -21,3 +21,4 @@
 - [**useState**](https://react.dev/reference/react/useState)
 #### Components & Props
 - [**Component**](https://react.dev/learn/your-first-component)
+- [**Props**](https://react.dev/learn/passing-props-to-a-component)
