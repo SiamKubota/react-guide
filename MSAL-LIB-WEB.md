@@ -4,8 +4,8 @@
 
 ### MSAL For Browser (node package)
 
-> **Ref**: [@azure/msal-browser](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser)
+> **Ref**: [@azure/msal-browser](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser/README.md)
 
 ### MSAL For React (node package)
 
-> **Ref**: [@azure/msal-react](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-react)
+> **Ref**: [@azure/msal-react](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-react/README.md)
