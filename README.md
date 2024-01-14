@@ -29,7 +29,7 @@
 
 #### Components & Props
 
-- [**Component**](https://react.dev/learn/your-first-component)y
+- [**Component**](https://react.dev/learn/your-first-component)
 - [**Props**](https://react.dev/learn/passing-props-to-a-component)
 
 #### APIs
