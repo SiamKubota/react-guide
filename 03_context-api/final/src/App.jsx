@@ -1,4 +1,4 @@
-import ModeProvider from "../context/ModeContext";
+import ModeProvider from "./context/ModeContext";
 // import { useState } from "react";
 // import "./App.css";
 
