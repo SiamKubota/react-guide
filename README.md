@@ -39,4 +39,9 @@
 ### OTHERs Recommended Library
 
 - Authenticated App with Microsoft Entra ID
+
   > **Ref**: [**MSALForJS**](https://github.com/SiamKubota/react-guide/blob/master/MSAL-LIB-WEB.md)
+
+- React Router
+
+  > **Ref**: [**ReactRouterDOM**](https://reactrouter.com/en/main)
