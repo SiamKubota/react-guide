@@ -2,9 +2,9 @@ import { useAccount, useMsalAuthentication } from "@azure/msal-react";
 
 import { InteractionType } from "@azure/msal-browser";
 
-import { loginRequest } from "../configs/msal-config";
+import { loginRequest } from "../../configs/msal-config";
 
-const SomePage = () => {
+const ExampleMsalHookPage = () => {
   const account = useAccount();
   const { acquireToken } = useMsalAuthentication(
     InteractionType.Popup,
@@ -32,4 +32,4 @@ const SomePage = () => {
   );
 };
 
-export default SomePage;
+export default ExampleMsalHookPage;
