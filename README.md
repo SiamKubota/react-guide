@@ -26,6 +26,7 @@
 
 - [**useState**](https://react.dev/reference/react/useState)
 - [**useContext**](https://react.dev/reference/react/useContext)
+- [**useEffect**](https://react.dev/reference/react/useEffect)
 
 #### Components & Props
 
