@@ -37,12 +37,16 @@
 
 - [**createContext**](https://react.dev/reference/react/createContext)
 
-### OTHERs Recommended Library
+### OTHERs Recommended  Frameworks, Libraries, Tools
 
 - Authenticated App with Microsoft Entra ID
 
   > **Ref**: [**MSALForJS**](https://github.com/SiamKubota/react-guide/blob/master/MSAL-LIB-WEB.md)
 
-- React Router
+- React Router (SPA Routing with React)
 
   > **Ref**: [**ReactRouterDOM**](https://reactrouter.com/en/main)
+
+- JSONPlaceholder (Free fake API for testing and prototyping)
+
+  > **Ref**: [**JSONPlaceholder**](https://jsonplaceholder.typicode.com/)
