@@ -1,0 +1,4 @@
+@import "./components/card.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
