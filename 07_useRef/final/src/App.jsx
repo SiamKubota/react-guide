@@ -1,4 +1,29 @@
 import { useRef, useState } from "react";
+import Paragraph from "./components/Paragraph";
+
+const PARAGRAPHs = [
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut ultrices velit. Sed nec justo eu quam commodo tristique. In hac habitasse platea dictumst. Fusce tristique, justo a blandit imperdiet, augue sapien aliquet odio, ut ultricies ligula libero vitae felis.",
+  "Proin tincidunt elit non justo vestibulum, vitae consectetur odio dignissim. Quisque facilisis, urna ac congue bibendum, eros justo malesuada orci, id viverra odio leo vel urna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+  "Duis id turpis sit amet mauris aliquet eleifend. Nullam id velit vitae metus hendrerit iaculis. Maecenas varius, risus vel accumsan malesuada, nunc mauris varius lacus, vitae suscipit lacus augue at sapien. Fusce eu sapien a nisl gravida eleifend.",
+  "Suspendisse potenti. Vivamus ut libero id elit vestibulum cursus nec vel ligula. Sed ullamcorper libero ut massa feugiat, at volutpat orci iaculis. Praesent vel justo vitae nunc fermentum iaculis.",
+  "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur varius purus a augue condimentum, vel volutpat est vulputate. Sed eget interdum urna. Vestibulum dapibus nulla vel turpis tristique commodo.",
+  "Quisque gravida libero ac justo luctus, vel congue dui pellentesque. Nulla facilisi. Mauris et risus eu nisi blandit vestibulum. Maecenas sed orci vel metus facilisis commodo vel vitae ligula. Sed eu efficitur erat.",
+  "Fusce euismod, turpis eget posuere vulputate, purus justo pharetra neque, at consequat turpis eros non elit. Fusce ac tincidunt urna. Quisque non leo quis justo viverra ultricies a in quam. Nam feugiat sollicitudin sapien, eu varius elit eleifend vel.",
+  "Nam vitae dolor id justo sagittis tristique. Integer eu tristique enim, at condimentum elit. In ac arcu vel orci elementum volutpat vel vitae nisl. Duis nec fermentum odio, non aliquet erat.",
+  "Cras vehicula, velit eget scelerisque scelerisque, ipsum risus bibendum ligula, in consequat quam eros non velit. In euismod accumsan nulla, nec ultrices augue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+  "Donec pharetra tortor non odio finibus, non posuere libero facilisis. Vestibulum auctor leo id libero varius, et vehicula elit euismod. Sed non augue eget justo fringilla facilisis. Integer efficitur vel nulla in varius.",
+  "Vivamus vel arcu vitae quam fringilla ultricies. Sed quis nibh nec nisl mattis congue. Integer tincidunt, purus ut malesuada tempor, velit metus pharetra metus, sit amet posuere lacus tellus et leo.",
+  "Etiam in arcu sit amet felis fermentum luctus a ut justo. Sed id sapien in odio laoreet aliquet. Nam id venenatis est. Duis at mauris eu justo consequat suscipit vel ut orci.",
+  "Pellentesque in ante sit amet leo bibendum imperdiet. Vivamus eu ligula vel odio fermentum dictum. Fusce euismod vulputate eros vel tincidunt. Integer gravida, augue eget iaculis hendrerit, sapien tellus lacinia elit, eget laoreet justo tortor ut justo.",
+  "Integer feugiat justo eu ligula bibendum, vel luctus velit malesuada. Ut ultricies lacinia erat, nec rhoncus elit vulputate a. Vestibulum sed dapibus felis. Nam hendrerit, metus in egestas tristique, elit dui pellentesque dui, vel pellentesque metus tellus nec felis.",
+  "Quisque ut tincidunt elit. Morbi tristique sapien in tortor semper, vel ultricies mauris auctor. Fusce eu lobortis odio. Sed quis augue eget nulla facilisis cursus.",
+  "Praesent eleifend, justo vel accumsan sagittis, ligula dolor sollicitudin quam, eu tincidunt nulla justo a tellus. Nullam imperdiet metus a augue malesuada, eu facilisis justo tincidunt. Ut in feugiat lacus. Proin vitae leo vel mi varius pellentesque.",
+  "Nam euismod auctor metus, at pharetra ex. Aenean euismod metus nec neque pellentesque, vel hendrerit metus commodo. Quisque venenatis lacus quis enim dictum, at pulvinar mauris convallis. Vivamus fermentum vel risus vitae tincidunt.",
+  "Suspendisse potenti. Maecenas in odio id quam fermentum dignissim at a neque. Fusce accumsan, leo vel egestas auctor, odio sem auctor turpis, a mattis purus mi non quam. Phasellus fermentum semper ex ut facilisis.",
+  "Curabitur eu felis vitae justo cursus vestibulum. Aenean vel magna ut felis malesuada venenatis. Curabitur tincidunt urna ut ligula hendrerit, a egestas augue ultricies. Maecenas eget odio nec odio ullamcorper mattis.",
+  "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed ac dapibus mauris. Ut et quam eget elit bibendum efficitur. In in dolor in ipsum fringilla varius. Fusce finibus tristique felis, vel euismod urna sagittis ut.",
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt odio in sagittis volutpat. Nulla auctor dictum magna, in malesuada sem vehicula nec. Etiam ac turpis auctor, cursus neque at, posuere elit. Integer tristique, tortor vel bibendum sagittis, est lacus euismod odio, eu fermentum elit ligula eu nunc.",
+];
 
 function App() {
   const [name, setName] = useState("");
@@ -6,6 +31,8 @@ function App() {
   const inputNameRef = useRef(null);
   const lastParagraphRef = useRef(null);
   const firstElementRef = useRef(null);
+
+  const paragraphRefs = useRef([]);
 
   const scrollToFirstElement = () => {
     firstElementRef.current.scrollIntoView({
@@ -18,6 +45,17 @@ function App() {
     lastParagraphRef.current.scrollIntoView({
       behavior: "smooth",
       block: "end",
+    });
+  };
+
+  const scrollToContent = (index, firstWord) => {
+    let url = new URL(
+      `http://${window.location.hostname}:${window.location.port}`
+    );
+    window.location.assign(`${url}#${firstWord}`);
+    paragraphRefs.current[index].scrollIntoView({
+      behavior: "smooth",
+      block: "start",
     });
   };
 
@@ -43,9 +81,27 @@ function App() {
         }}
       />
       <h2>{inputNameRef.current?.value}</h2>
+      <button
+        onClick={() => {
+          alert(inputNameRef.current?.value);
+        }}
+      >
+        Alert REF
+      </button>
       <br />
 
       <button onClick={scrollToLastParagraph}>Bottom</button>
+
+      {PARAGRAPHs.map((content, index) => (
+        <Paragraph
+          key={index}
+          id={index}
+          ref={(el) => (paragraphRefs.current[index] = el)}
+          handleClick={scrollToContent}
+        >
+          {content}
+        </Paragraph>
+      ))}
 
       <p>
         ﻿กรรมาชน คำสาปราเม็งโรแมนติคแซ็กพอเพียง ฮิโกะ
