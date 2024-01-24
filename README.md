@@ -52,3 +52,7 @@
 - JSONPlaceholder (Free fake API for testing and prototyping)
 
   > **Ref**: [**JSONPlaceholder**](https://jsonplaceholder.typicode.com/)
+
+- Lorem in Thai (สร้างข้อความแทนที่ (placeholder text) ใช้เพื่อลดความสนใจต่อข้อความที่นำมาแสดง)
+  
+  > **Ref**: [**LoremInThai**](https://lorem.in.th/)
