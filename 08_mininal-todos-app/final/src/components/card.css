@@ -1,5 +1,0 @@
-@layer components {
-  .card-default {
-    @apply shadow-md bg-teal-50;
-  }
-}
