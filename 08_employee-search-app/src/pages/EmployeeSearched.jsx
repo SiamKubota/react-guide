@@ -1,4 +1,8 @@
-import { Fragment, useState } from "react";
+import {
+  Fragment,
+  useState,
+  //  useEffect
+} from "react";
 
 import { useTheme, styled, alpha } from "@mui/material/styles";
 import { Paper, Container, TextField, InputAdornment } from "@mui/material";
@@ -40,6 +44,28 @@ export default function EmployeeSearch() {
       },
     };
   });
+
+  // useEffect(() => {
+  //   const getEmployees = async () => {
+  //     const response = await fetch(
+  //       "https://d701apsi01-la01skc.azurewebsites.net/skcapi/empsearch",
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           Authorization:
+  //             "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5fc2tjIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE3MDY0OTM5MDIsImlzcyI6Imh0dHBzOi8vcDcwMWFwc2kwMS1sYTAxc2tjLmF6dXJld2Vic2l0ZXMubmV0IiwiYXVkIjpbImh0dHBzOi8vcDcwMWFwc2kwMS1sYTAxc2tjLmF6dXJld2Vic2l0ZXMubmV0IiwiaHR0cHM6Ly9wNzAxYXBzaTAxLWxhMDFza2MuYXp1cmV3ZWJzaXRlcy5uZXQiLCJodHRwczovL3A3MDFhcHNpMDEtbGEwMXNrYy5henVyZXdlYnNpdGVzLm5ldCIsImh0dHBzOi8vcDcwMWFwc2kwMS1sYTAxc2tjLmF6dXJld2Vic2l0ZXMubmV0IiwiaHR0cHM6Ly9wNzAxYXBzaTAxLWxhMDFza2MuYXp1cmV3ZWJzaXRlcy5uZXQiLCJodHRwczovL3A3MDFhcHNpMDEtbGEwMXNrYy5henVyZXdlYnNpdGVzLm5ldCIsImh0dHBzOi8vcDcwMWFwc2kwMS1sYTAxc2tjLmF6dXJld2Vic2l0ZXMubmV0IiwiaHR0cHM6Ly9wNzAxYXBzaTAxLWxhMDFza2MuYXp1cmV3ZWJzaXRlcy5uZXQiLCJodHRwczovL3A3MDFhcHNpMDEtbGEwMXNrYy5henVyZXdlYnNpdGVzLm5ldCIsImh0dHBzOi8vcDcwMWFwc2kwMS1sYTAxc2tjLmF6dXJld2Vic2l0ZXMubmV0IiwiaHR0cHM6Ly9wNzAxYXBzaTAxLWxhMDFza2MuYXp1cmV3ZWJzaXRlcy5uZXQiLCJodHRwczovL3A3MDFhcHNpMDEtbGEwMXNrYy5henVyZXdlYnNpdGVzLm5ldCIsImh0dHBzOi8vcDcwMWFwc2kwMS1sYTAxc2tjLmF6dXJld2Vic2l0ZXMubmV0IiwiaHR0cHM6Ly9wNzAxYXBzaTAxLWxhMDFza2MuYXp1cmV3ZWJzaXRlcy5uZXQiLCJodHRwczovL3A3MDFhcHNpMDEtbGEwMXNrYy5henVyZXdlYnNpdGVzLm5ldCIsImh0dHBzOi8vcDcwMWFwc2kwMS1sYTAxc2tjLmF6dXJld2Vic2l0ZXMubmV0IiwiaHR0cHM6Ly9wNzAxYXBzaTAxLWxhMDFza2MuYXp1cmV3ZWJzaXRlcy5uZXQiLCJodHRwczovL3A3MDFhcHNpMDEtbGEwMXNrYy5henVyZXdlYnNpdGVzLm5ldCIsImh0dHBzOi8vcDcwMWFwc2kwMS1sYTAxc2tjLmF6dXJld2Vic2l0ZXMubmV0IiwiaHR0cHM6Ly9wNzAxYXBzaTAxLWxhMDFza2MuYXp1cmV3ZWJzaXRlcy5uZXQiLCJodHRwczovL3A3MDFhcHNpMDEtbGEwMXNrYy5henVyZXdlYnNpdGVzLm5ldCIsImh0dHBzOi8vcDcwMWFwc2kwMS1sYTAxc2tjLmF6dXJld2Vic2l0ZXMubmV0IiwiaHR0cHM6Ly9wNzAxYXBzaTAxLWxhMDFza2MuYXp1cmV3ZWJzaXRlcy5uZXQiLCJodHRwczovL3A3MDFhcHNpMDEtbGEwMXNrYy5henVyZXdlYnNpdGVzLm5ldCIsImh0dHBzOi8vcDcwMWFwc2kwMS1sYTAxc2tjLmF6dXJld2Vic2l0ZXMubmV0IiwiaHR0cHM6Ly9wNzAxYXBzaTAxLWxhMDFza2MuYXp1cmV3ZWJzaXRlcy5uZXQiLCJodHRwczovL3A3MDFhcHNpMDEtbGEwMXNrYy5henVyZXdlYnNpdGVzLm5ldCIsImh0dHBzOi8vcDcwMWFwc2kwMS1sYTAxc2tjLmF6dXJld2Vic2l0ZXMubmV0IiwiaHR0cHM6Ly9wNzAxYXBzaTAxLWxhMDFza2MuYXp1cmV3ZWJzaXRlcy5uZXQiLCJodHRwczovL3A3MDFhcHNpMDEtbGEwMXNrYy5henVyZXdlYnNpdGVzLm5ldCIsImh0dHBzOi8vcDcwMWFwc2kwMS1sYTAxc2tjLmF6dXJld2Vic2l0ZXMubmV0IiwiaHR0cHM6Ly9wNzAxYXBzaTAxLWxhMDFza2MuYXp1cmV3ZWJzaXRlcy5uZXQiXX0.zuJQz3puQFhULfTo33vzLjlkmlPjw6VKxah5_YoW9Js",
+  //         },
+  //         body: JSON.stringify({
+  //           keyword: "Digital Technology",
+  //         }),
+  //       }
+  //     );
+  //     const data = await response.json();
+  //     console.log("data: ", data);
+  //   };
+
+  //   getEmployees();
+  // }, []);
 
   const onChangeSearchInput = (event) => {
     setSearch(event.target.value);
