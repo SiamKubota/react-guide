@@ -49,6 +49,10 @@
 
   > **Ref**: [**ReactRouterDOM**](https://reactrouter.com/en/main)
 
+- MUI (Material UI - React Component & UI Libraby)
+
+  > **Ref**: [**MUI**](https://mui.com/material-ui)
+
 - JSONPlaceholder (Free fake API for testing and prototyping)
 
   > **Ref**: [**JSONPlaceholder**](https://jsonplaceholder.typicode.com/)
