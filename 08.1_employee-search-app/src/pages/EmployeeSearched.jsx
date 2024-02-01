@@ -25,7 +25,15 @@ export default function EmployeeSearchedPage() {
 
   return (
     <>
-      <Container maxWidth="xs">
+      <Container
+        maxWidth="xs"
+        sx={{
+          position: "sticky",
+          top: 25,
+          mt: 3,
+          backgroundColor: "white",
+        }}
+      >
         <TextField
           label="ค้นหา"
           color="secondary"
@@ -53,7 +61,7 @@ export default function EmployeeSearchedPage() {
         sx={(theme) => ({
           bgcolor: alpha(theme.palette.primary.main, 0.25),
           my: 5,
-          mx: 10,
+          mx: { xs: 2, sm: 10, lg: 20 },
         })}
       >
         <EmployeeLists employees={DT_DIVISION_EMPLOYEES} />
