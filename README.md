@@ -55,7 +55,7 @@
 
 - React Spring (Build animations with React)
 
-  > **React Spring**: [**react-spring**](https://www.react-spring.dev/)
+  > **Ref**: [**react-spring**](https://www.react-spring.dev/)
 
 - JSONPlaceholder (Free fake API for testing and prototyping)
 
