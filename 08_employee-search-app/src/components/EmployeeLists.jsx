@@ -22,6 +22,7 @@ export default function EmployeeLists({ employees = [] }) {
             nickname={employee.nicknameTH}
             eid={employee.eid}
             position={employee.jobNameTH}
+            email={employee.email}
           />
         </Grid>
       ))}

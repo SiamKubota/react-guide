@@ -31,14 +31,17 @@ const SlidedContainer = styled(AnimatedContainer, {
   backgroundColor: isSearching ? theme.palette.grey[200] : "transparent",
   borderRadius: 8,
   zIndex: 1,
-  transition: "background-color .5s linear, color .5s ease-in-out",
+  // transition:
+  //   "background-color 500ms linear, color 500ms linear, shadow 500ms linear",
+  transitionProperty: "background-color, color, shadow",
+  transitionDuration: "500ms",
+  transitionTimingFunction: "linear",
   "&.MuiContainer-root": {
     padding: theme.spacing(0.5),
     ...(isSearching && {
       boxShadow: `2px 2px 8px ${alpha(theme.palette.common.black, 0.5)}`,
       "& .MuiSvgIcon-root, & .MuiTypography-root": {
         color: theme.palette.secondary.main,
-        // textShadow: `2px 2px 4px ${theme.palette.secondary.main}`,
       },
       "& .MuiInputBase-root": {
         backgroundColor: theme.palette.common.white,
@@ -47,8 +50,6 @@ const SlidedContainer = styled(AnimatedContainer, {
     }),
   },
 }));
-
-// const Animated
 
 export default function EmployeeSearch() {
   const [data, setData] = useState([]);
