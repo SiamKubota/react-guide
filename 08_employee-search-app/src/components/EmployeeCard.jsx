@@ -50,10 +50,10 @@ export default function EmployeeCard({
       />
       <CardContent>
         <Tooltip title="การอนมัติ">
-          <IconButton sx={{ position: "absolute", top: 0, right: 0 }}>
+          <IconButton sx={{ position: "absolute", bottom: 0, right: 0 }}>
             <SchemaIcon
               sx={{
-                transform: "rotate(90deg)",
+                transform: "rotate(270deg)",
                 color: (theme) => theme.palette.secondary.light,
               }}
             />

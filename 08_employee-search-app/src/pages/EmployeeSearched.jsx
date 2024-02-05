@@ -30,12 +30,12 @@ const SlidedContainer = styled(AnimatedContainer, {
   ...style,
   backgroundColor: isSearching ? theme.palette.grey[200] : "transparent",
   borderRadius: 8,
-  boxShadow: `2px 2px 8px ${alpha(theme.palette.common.black, 0.5)}`,
   zIndex: 1,
   transition: "background-color .5s linear, color .5s ease-in-out",
   "&.MuiContainer-root": {
     padding: theme.spacing(0.5),
     ...(isSearching && {
+      boxShadow: `2px 2px 8px ${alpha(theme.palette.common.black, 0.5)}`,
       "& .MuiSvgIcon-root, & .MuiTypography-root": {
         color: theme.palette.secondary.main,
         // textShadow: `2px 2px 4px ${theme.palette.secondary.main}`,
