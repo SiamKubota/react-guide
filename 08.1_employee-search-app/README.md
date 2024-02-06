@@ -7,7 +7,7 @@
 	> **Finished UI**
 	![Finished Page UI](src/assets/example-done-01.png  "Example Finished Page UI")
 2. สร้าง Modal (Dialog in MUI) สำหรับแสดงรายละเอียดสายการอนุมัติของ employee แต่ละคน
-	* Title ให้แสดง คำนำหน้า ชื่อ สกุล และรหัสพนักงาน ตามข้อมูลจาก Card ที่คลิก
+	* Title ให้แสดง คำนำหน้า ชื่อ สกุล และรหัสพนักงาน ตามข้อมูลจาก Card ที่คลิกในข้อ 1.
 	* Content สามารถ Mock up ข้อมูลได้
 		> Copy from `https://empsearch.azurewebsites.net/approval/{your-employee-id}` 				> Inspect mode > Network
 		
