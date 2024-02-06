@@ -1,8 +1,15 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Employees Search
+###  Ex. 1 (source: [`08.1_employee-search-app`](https://github.com/SiamKubota/react-guide/tree/master/08.1_employee-search-app))
+1. แก้ไขสไตล์ปุ่มไอคอน Hierachy ที่มุมขวาของ EmployeeCard แต่ละใบ
+	> **Starter UI**
+	![Started Page UI](/assets/exmaple-start-01.png  "Example Started Page UI")
+	
+	> **Finished UI**
+	![Finished Page UI](/assets/exmaple-done-01.png  "Example Finished Page UI")
+2. สร้าง Modal (Dialog in MUI) สำหรับแสดงรายละเอียดสายการอนุมัติของ employee แต่ละคน
+	* Title ให้แสดง คำนำหน้า ชื่อ สกุล และรหัสพนักงาน ตามข้อมูลจาก Card ที่คลิก
+	* Content สามารถ Mock up ข้อมูลได้
+		> Copy from `https://empsearch.azurewebsites.net/approval/{your-employee-id}` 				> Inspect mode > Network
+		
+		> Finished UI 
+		![Finished Modal UI](/assets/exmaple-done-02.png  "Example Finished Modal  UI")
