@@ -22,7 +22,7 @@ export default function EmployeeLists(props) {
           jobNameTH,
         } = employee;
         return (
-          <Grid key={employee.eid} item xs={12} sm={6}>
+          <Grid key={employee.eid} item xs={12} md={6}>
             <EmployeeCard
               eid={eid}
               avatarUrl={picture_url}
