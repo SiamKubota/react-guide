@@ -1,4 +1,7 @@
 export const THEME_COLORS = {
+  background: {
+    default: "#F0FDFB",
+  },
   primary: {
     light: "#33b4a2",
     main: "#00A28B",

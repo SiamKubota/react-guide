@@ -24,6 +24,23 @@ const SlidedContainer = styled(AnimatedContainer)(
       ...style,
       backgroundColor: isSearching ? theme.palette.grey[200] : "transparent",
       borderRadius: 8,
+      "&.MuiContainer-root": {
+        padding: theme.spacing(0.5),
+      },
+      ...(isSearching
+        ? {
+            boxShadow: `2px 2px 8px ${alpha(theme.palette.common.black, 0.5)}`,
+            "& .MuiSvgIcon-root, & .MuiTypography-root": {
+              color: theme.palette.secondary.main,
+            },
+            "& .MuiInputBase-root": {
+              backgroundColor: theme.palette.common.white,
+              "& .MuiSvgIcon-root": {
+                color: theme.palette.grey[500],
+              },
+            },
+          }
+        : null),
     };
   }
 );
@@ -59,7 +76,6 @@ export default function EmployeeSearchedPage() {
         sx={{
           position: "sticky",
           top: 10,
-          // mt: 3,
         }}
         style={springs}
       >
@@ -73,7 +89,7 @@ export default function EmployeeSearchedPage() {
           mt={1}
           mb={2}
         >
-          <GroupsIcon />
+          <GroupsIcon sx={{ fontSize: 48 }} />
           <Typography variant="h4" align="center">
             Employees Search
           </Typography>

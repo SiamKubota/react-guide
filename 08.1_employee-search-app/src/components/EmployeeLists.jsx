@@ -7,6 +7,8 @@ import EmployeeCard from "./EmployeeCard";
 export default function EmployeeLists(props) {
   const { employees = [] } = props;
 
+  if (!employees.length) return null;
+
   return (
     <Grid container rowSpacing={2} columnSpacing={4} px={2} pb={2}>
       {employees.map((employee) => {

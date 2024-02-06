@@ -5,6 +5,9 @@ import MuiCard from "@mui/material/Card";
 import MuiCardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
+import IconButton from "@mui/material/IconButton";
+
+import SchemaIcon from "@mui/icons-material/Schema";
 
 const Card = styled(MuiCard)({
   display: "flex",
@@ -14,10 +17,12 @@ const Card = styled(MuiCard)({
 
 const CardContent = styled(MuiCardContent)({
   display: "flex",
+  flexGrow: 1,
   flexDirection: "column",
   alignItems: "flex-start",
   height: "100%",
-  marginTop: 16,
+  // marginTop: 16,
+  position: "relative",
 });
 
 export default function EmployeeCard({
@@ -43,6 +48,9 @@ export default function EmployeeCard({
         }`}</Typography>
         <Typography variant="subtitle2">{eid}</Typography>
         <Typography variant="subtitle2">{position}</Typography>
+        <IconButton sx={{ position: "absolute", bottom: 0, right: 0 }}>
+          <SchemaIcon />
+        </IconButton>
       </CardContent>
     </Card>
   );
