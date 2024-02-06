@@ -1,4 +1,4 @@
-import { Grid, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
 
 import EmployeeCard from "./EmployeeCard";
 
@@ -13,7 +13,7 @@ export default function EmployeeLists({ employees = [] }) {
   return (
     <Grid container rowSpacing={2} columnSpacing={4} px={2} pb={2}>
       {employees.map((employee) => (
-        <Grid key={employee.eid} rowSpacing={2} item xs={12} sm={6}>
+        <Grid key={employee.eid} rowSpacing={2} item xs={12} md={6}>
           <EmployeeCard
             avatarUrl={employee.picture_url}
             prefix={employee.titleTH}
@@ -22,6 +22,7 @@ export default function EmployeeLists({ employees = [] }) {
             nickname={employee.nicknameTH}
             eid={employee.eid}
             position={employee.jobNameTH}
+            email={employee.email}
           />
         </Grid>
       ))}

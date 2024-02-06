@@ -4,11 +4,19 @@ import {
   //  useEffect
 } from "react";
 
-import { useTheme, styled, alpha } from "@mui/material/styles";
-import { Paper, Container, TextField, InputAdornment } from "@mui/material";
+import { styled, alpha } from "@mui/material/styles";
+import {
+  Box,
+  Paper,
+  Container,
+  Typography,
+  TextField,
+  InputAdornment,
+} from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import GroupsIcon from "@mui/icons-material/Groups";
 
-import { animated, useSpring, useTransition } from "@react-spring/web";
+import { animated, useSpring } from "@react-spring/web";
 
 import EmployeeLists from "../components/EmployeeLists";
 
@@ -20,23 +28,33 @@ const SlidedContainer = styled(AnimatedContainer, {
 })(({ theme, isSearching, sx, style }) => ({
   ...sx,
   ...style,
-  backgroundColor: isSearching ? theme.palette.grey[50] : "transparent",
-  transition: "background-color .2s linear",
+  backgroundColor: isSearching ? theme.palette.grey[200] : "transparent",
   borderRadius: 8,
+  zIndex: 1,
+  // transition:
+  //   "background-color 500ms linear, color 500ms linear, shadow 500ms linear",
+  transitionProperty: "background-color, color, shadow",
+  transitionDuration: "500ms",
+  transitionTimingFunction: "linear",
   "&.MuiContainer-root": {
     padding: theme.spacing(0.5),
-    // paddingLeft: 0,
-    // paddingRight: 0,
+    ...(isSearching && {
+      boxShadow: `2px 2px 8px ${alpha(theme.palette.common.black, 0.5)}`,
+      "& .MuiSvgIcon-root, & .MuiTypography-root": {
+        color: theme.palette.secondary.main,
+      },
+      "& .MuiInputBase-root": {
+        backgroundColor: theme.palette.common.white,
+        "& .MuiSvgIcon-root": { color: theme.palette.grey[500] },
+      },
+    }),
   },
 }));
-
-// const Animated
 
 export default function EmployeeSearch() {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
 
-  const theme = useTheme();
   const [springs, api] = useSpring(() => {
     return {
       from: {
@@ -91,17 +109,31 @@ export default function EmployeeSearch() {
         isSearching={!!data.length}
         sx={{
           position: "sticky",
-          top: 25,
-          mt: 3,
+          top: 10,
         }}
         style={springs}
       >
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            columnGap: 2,
+          }}
+          mt={1}
+          mb={2}
+        >
+          <GroupsIcon sx={{ fontSize: 48 }} />
+          <Typography variant="h4" align="center">
+            Employees Search
+          </Typography>
+        </Box>
         <TextField
           color="secondary"
           value={search}
           onChange={onChangeSearchInput}
           fullWidth
-          // variant="standard"
+          // variant="filled"
           label="ค้นหา"
           placeholder="พิมพ์คำค้นหา เช่น ชื่อ ,สกุล ,หน่วยงาน"
           InputProps={{

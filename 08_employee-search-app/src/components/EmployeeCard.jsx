@@ -1,15 +1,20 @@
+import { Fragment, useState } from "react";
 import { styled } from "@mui/material/styles";
 import {
   Card as MuiCard,
   CardContent as MuiCardContent,
   CardMedia,
   Typography,
+  Tooltip,
+  IconButton,
 } from "@mui/material";
+import SchemaIcon from "@mui/icons-material/Schema";
+
+import ApprovalHierachyModal from "./ApprovalHierachyModal";
 
 // import AvatarImage from "../assets/21027.jpg";
 
 const Card = styled(MuiCard)(({ theme }) => {
-  console.log("theme: ", theme);
   return {
     display: "flex",
     alignItems: "center",
@@ -22,9 +27,11 @@ const Card = styled(MuiCard)(({ theme }) => {
 
 const CardContent = styled(MuiCardContent)({
   display: "flex",
+  flexGrow: 1,
   flexDirection: "column",
   alignItems: "flex-start",
   height: "100%",
+  position: "relative",
 });
 
 export default function EmployeeCard({
@@ -35,22 +42,56 @@ export default function EmployeeCard({
   nickname,
   eid,
   position,
+  email,
 }) {
+  const [openedModal, setOpenedModal] = useState(false);
+
+  const handleOpenModal = () => {
+    setOpenedModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpenedModal(false);
+  };
+
   return (
-    <Card>
-      <CardMedia
-        component="img"
-        image={avatarUrl}
-        alt="employee_avatar"
-        sx={{ objectFit: "contain", width: { xs: 80, sm: 120 } }}
+    <Fragment>
+      <Card>
+        <CardMedia
+          component="img"
+          image={avatarUrl}
+          alt="employee_avatar"
+          sx={{ objectFit: "contain", width: { xs: 80, sm: 120 } }}
+        />
+        <CardContent>
+          <Tooltip title="การอนมัติ">
+            <IconButton
+              onClick={handleOpenModal}
+              sx={{ position: "absolute", bottom: 0, right: 0 }}
+            >
+              <SchemaIcon
+                sx={{
+                  transform: "rotate(270deg)",
+                  color: (theme) => theme.palette.secondary.light,
+                }}
+              />
+            </IconButton>
+          </Tooltip>
+          <Typography variant="subtitle1">{`${prefix}${name} ${lastname} ${
+            nickname ? `(${nickname})` : ""
+          }`}</Typography>
+          <Typography variant="subtitle2">{eid}</Typography>
+          <Typography>{position}</Typography>
+          <Typography>{email}</Typography>
+        </CardContent>
+      </Card>
+
+      <ApprovalHierachyModal
+        opened={openedModal}
+        handleClose={handleCloseModal}
+        fullname={`${prefix}${name} ${lastname}`}
+        eid={eid}
       />
-      <CardContent>
-        <Typography variant="subtitle1">{`${prefix}${name} ${lastname} ${
-          nickname ? `(${nickname})` : ""
-        }`}</Typography>
-        <Typography variant="subtitle2">{eid}</Typography>
-        <Typography>{position}</Typography>
-      </CardContent>
-    </Card>
+    </Fragment>
   );
 }
