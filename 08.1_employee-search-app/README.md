@@ -1,5 +1,5 @@
 # Employees Search
-###  Ex. 1 (source: [`08.1_employee-search-app`](https://github.com/SiamKubota/react-guide/tree/master/08.1_employee-search-app))
+###  Exercise 1 (source: [`08.1_employee-search-app`](https://github.com/SiamKubota/react-guide/tree/master/08.1_employee-search-app))
 1. แก้ไขสไตล์ปุ่มไอคอน Hierachy ที่มุมขวาของ EmployeeCard แต่ละใบ
 	> **Starter UI**
 	![Started Page UI](src/assets/exmaple-start-01.png  "Example Started Page UI")
