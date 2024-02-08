@@ -24,6 +24,7 @@ const SlidedContainer = styled(AnimatedContainer)(
       ...style,
       backgroundColor: isSearching ? theme.palette.grey[200] : "transparent",
       borderRadius: 8,
+      zIndex: 1,
       "&.MuiContainer-root": {
         padding: theme.spacing(0.5),
       },
