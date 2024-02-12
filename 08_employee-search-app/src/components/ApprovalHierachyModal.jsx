@@ -16,14 +16,6 @@ import CloseIcon from "@mui/icons-material/Close";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
-// import { styled } from "@mui/material/styles";
-
-// const StyledConnector = styled("div")({
-//   width: 50,
-//   height: 50,
-//   borderRadius: "50%",
-//   backgroundColor: "red",
-// });
 
 const APPROVAL_HIERACHY = [
   {
@@ -210,49 +202,64 @@ export default function ApprovalHierachyModal({
       </DialogTitle>
       <DialogContent>
         <Stepper orientation="vertical">
-          {APPROVAL_HIERACHY.map((step) => (
-            <Step key={step.approverunId} active completed={false}>
-              <StepLabel>
-                <strong>
-                  {step.action} - {step.bossName} ({step.bossId})
-                </strong>
-              </StepLabel>
-              <StepContent>
-                <Box
-                  sx={{ display: "flex", alignItems: "center", columnGap: 1 }}
-                  mb={0.5}
-                >
-                  <AlternateEmailIcon
-                    fontSize="small"
-                    sx={{ color: (theme) => theme.palette.grey[600] }}
-                  />
-                  <Typography variant="subtitle2">{step.bossEmail}</Typography>
-                  <Tooltip title="Copy">
-                    <IconButton
-                      onClick={() => {
-                        navigator.clipboard.writeText(step.bossEmail);
-                      }}
-                      size="small"
-                      sx={{ color: (theme) => theme.palette.grey[400] }}
-                    >
-                      <ContentCopyIcon sx={{ fontSize: 14 }} />
-                    </IconButton>
-                  </Tooltip>
-                </Box>
-                <Box
-                  sx={{ display: "flex", alignContent: "center", columnGap: 1 }}
-                >
-                  <BusinessCenterIcon
-                    fontSize="small"
-                    sx={{ color: (theme) => theme.palette.grey[600] }}
-                  />
-                  <Typography variant="subtitle2">
-                    {step.bossJobRoleName}
-                  </Typography>
-                </Box>
-              </StepContent>
-            </Step>
-          ))}
+          {APPROVAL_HIERACHY.map((step) => {
+            const bossRoleName = {
+              main: step.bossJobRoleName,
+              acting: step.actorJobRoleName,
+            };
+            return (
+              <Step key={step.approverunId} active completed={false}>
+                <StepLabel>
+                  <strong>
+                    {step.action} - {step.bossName} ({step.bossId})
+                  </strong>
+                </StepLabel>
+                <StepContent>
+                  <Box
+                    sx={{ display: "flex", alignItems: "center", columnGap: 1 }}
+                    mb={0.5}
+                  >
+                    <AlternateEmailIcon
+                      fontSize="small"
+                      sx={{ color: (theme) => theme.palette.grey[600] }}
+                    />
+                    <Typography variant="subtitle2">
+                      {step.bossEmail}
+                    </Typography>
+                    <Tooltip title="Copy">
+                      <IconButton
+                        onClick={() => {
+                          navigator.clipboard.writeText(step.bossEmail);
+                        }}
+                        size="small"
+                        sx={{ color: (theme) => theme.palette.grey[400] }}
+                      >
+                        <ContentCopyIcon sx={{ fontSize: 14 }} />
+                      </IconButton>
+                    </Tooltip>
+                  </Box>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignContent: "center",
+                      columnGap: 1,
+                    }}
+                  >
+                    <BusinessCenterIcon
+                      fontSize="small"
+                      sx={{ color: (theme) => theme.palette.grey[600] }}
+                    />
+                    <Typography variant="subtitle2">
+                      {bossRoleName[step.action.toLowerCase()]}
+                      {/* {step.action === "Acting"
+                      ? step.actorJobRoleName
+                      : step.bossJobRoleName} */}
+                    </Typography>
+                  </Box>
+                </StepContent>
+              </Step>
+            );
+          })}
         </Stepper>
       </DialogContent>
     </Dialog>

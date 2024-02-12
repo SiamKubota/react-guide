@@ -16,13 +16,17 @@ export default function EmployeeLists({ employees = [] }) {
         <Grid key={employee.eid} rowSpacing={2} item xs={12} md={6}>
           <EmployeeCard
             avatarUrl={employee.picture_url}
+            nickname={employee.nicknameTH}
             prefix={employee.titleTH}
             name={employee.nameTH}
             lastname={employee.lastnameTH}
-            nickname={employee.nicknameTH}
             eid={employee.eid}
-            position={employee.jobNameTH}
             email={employee.email}
+            position={employee.jobNameTH}
+            section={employee.bU8NameEN}
+            department={employee.bU6NameEN}
+            division={employee.bU5NameEN}
+            isAvailabled={employee.stts.toLowerCase() === "a"}
           />
         </Grid>
       ))}
