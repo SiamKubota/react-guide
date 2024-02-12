@@ -20,7 +20,7 @@
 
 ### React (JS Library for create UI)
 
-> **Ref**: [React](https://react.dev/)
+> [React](https://react.dev/)
 
 #### Hooks
 
@@ -38,29 +38,30 @@
 
 - [**createContext**](https://react.dev/reference/react/createContext)
 - [**forwardRef**](https://react.dev/reference/react/forwardRef)
+- [**createPortal**](https://react.dev/reference/react-dom/createPortal)
 
 ### OTHERs Recommended  Frameworks, Libraries, Tools
 
 - Authenticated App with Microsoft Entra ID
 
-  > **Ref**: [**MSALForJS**](https://github.com/SiamKubota/react-guide/blob/master/MSAL-LIB-WEB.md)
+  > [**MSALForJS**](https://github.com/SiamKubota/react-guide/blob/master/MSAL-LIB-WEB.md)
 
 - React Router (SPA Routing with React)
 
-  > **Ref**: [**ReactRouterDOM**](https://reactrouter.com/en/main)
+  > [**ReactRouterDOM**](https://reactrouter.com/en/main)
 
 - MUI (Material UI - React Component & UI Libraby)
 
-  > **Ref**: [**MUI**](https://mui.com/material-ui)
+  > [**MUI**](https://mui.com/material-ui)
 
 - React Spring (Build animations with React)
 
-  > **Ref**: [**react-spring**](https://www.react-spring.dev/)
+  > [**react-spring**](https://www.react-spring.dev/)
 
 - JSONPlaceholder (Free fake API for testing and prototyping)
 
-  > **Ref**: [**JSONPlaceholder**](https://jsonplaceholder.typicode.com/)
+  > [**JSONPlaceholder**](https://jsonplaceholder.typicode.com/)
 
 - Lorem in Thai (สร้างข้อความแทนที่ (placeholder text) ใช้เพื่อลดความสนใจต่อข้อความที่นำมาแสดง)
   
-  > **Ref**: [**LoremInThai**](https://lorem.in.th/)
+  > [**LoremInThai**](https://lorem.in.th/)
