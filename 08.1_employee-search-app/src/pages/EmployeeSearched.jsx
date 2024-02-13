@@ -6,11 +6,15 @@ import InputAdornment from "@mui/material/InputAdornment";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import ButtonGroup from "@mui/material/ButtonGroup";
+import Button from "@mui/material/Button";
 import { styled, alpha } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
 import GroupsIcon from "@mui/icons-material/Groups";
 
 import { animated, useSpring } from "@react-spring/web";
+
+import { useTranslation } from "react-i18next";
 
 import EmployeeLists from "../components/EmployeeLists";
 
@@ -49,6 +53,7 @@ const SlidedContainer = styled(AnimatedContainer)(
 export default function EmployeeSearchedPage() {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
+  const { t, i18n } = useTranslation();
   const [springs, api] = useSpring(() => {
     return {
       from: {
@@ -68,6 +73,17 @@ export default function EmployeeSearchedPage() {
     });
     setData(DT_DIVISION_EMPLOYEES);
   };
+
+  // const onClickChangeLanguage = (lang) => () => {
+
+  // }
+
+  function onClickChangeLanguage(lang) {
+    return function () {
+      // console.log("lang: ", lang);
+      i18n.changeLanguage(lang);
+    };
+  }
 
   return (
     <>
@@ -92,8 +108,32 @@ export default function EmployeeSearchedPage() {
         >
           <GroupsIcon sx={{ fontSize: 48 }} />
           <Typography variant="h4" align="center">
-            Employees Search
+            {t("appName")}
           </Typography>
+          {data.length ? (
+            <ButtonGroup
+              size="small"
+              orientation="vertical"
+              sx={{
+                position: "absolute",
+                top: 0,
+                right: 0,
+              }}
+            >
+              <Button
+                variant={i18n.language === "th" ? "contained" : "outlined"}
+                onClick={onClickChangeLanguage("th")}
+              >
+                ไทย
+              </Button>
+              <Button
+                variant={i18n.language === "en" ? "contained" : "outlined"}
+                onClick={onClickChangeLanguage("en")}
+              >
+                ENG
+              </Button>
+            </ButtonGroup>
+          ) : null}
         </Box>
         <TextField
           label="ค้นหา"

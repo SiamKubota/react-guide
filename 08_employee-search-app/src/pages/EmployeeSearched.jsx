@@ -3,7 +3,7 @@ import {
   useState,
   //  useEffect
 } from "react";
-
+import { useTranslation } from "react-i18next";
 import { styled, alpha } from "@mui/material/styles";
 import {
   Box,
@@ -12,6 +12,8 @@ import {
   Typography,
   TextField,
   InputAdornment,
+  ButtonGroup,
+  Button,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import GroupsIcon from "@mui/icons-material/Groups";
@@ -63,6 +65,8 @@ export default function EmployeeSearch() {
     };
   });
 
+  const { t, i18n } = useTranslation();
+
   // useEffect(() => {
   //   const getEmployees = async () => {
   //     const response = await fetch(
@@ -93,20 +97,30 @@ export default function EmployeeSearch() {
     api.start({
       to: { y: "0vh" },
     });
+    // const sortedEmployees = DT_DIVISION_EMPLOYEES.toSorted((a) => {
+    //   if (a.stts === "C") return 1;
+    //   else return -1;
+    // });
+    // console.log("testEmps: ", testEmps);
     const availabledEmps = DT_DIVISION_EMPLOYEES.filter(
-      (emp) => emp.stts === "A"
+      (emp) => emp.stts.toLowerCase() === "a"
     );
     const resignedEmps = DT_DIVISION_EMPLOYEES.filter(
-      (emp) => emp.stts === "C"
+      (emp) => emp.stts.toLowerCase() === "c"
     );
     setData([...availabledEmps, ...resignedEmps]);
+  };
+
+  const onChangeLanguage = (lang) => () => {
+    if (i18n.language === lang) return;
+    i18n.changeLanguage(lang);
   };
 
   return (
     <Fragment>
       <SlidedContainer
-        maxWidth="xs"
-        isSearching={!!data.length}
+        maxWidth="sm"
+        isSearching={data.length}
         sx={{
           position: "sticky",
           top: 10,
@@ -116,17 +130,41 @@ export default function EmployeeSearch() {
         <Box
           sx={{
             display: "flex",
-            justifyContent: "center",
+            justifyContent: {
+              xs: data.length ? "flex-start" : "center",
+              sm: "center",
+            },
             alignItems: "center",
             columnGap: 2,
           }}
           mt={1}
           mb={2}
+          ml={{ xs: data.length ? 1 : 0, sm: 0 }}
         >
           <GroupsIcon sx={{ fontSize: 48 }} />
-          <Typography variant="h4" align="center">
-            Employees Search
-          </Typography>
+          <Typography variant="h4">{t("appName")}</Typography>
+          {data.length ? (
+            <ButtonGroup
+              size="small"
+              orientation="vertical"
+              variant="outlined"
+              sx={{ position: "absolute", top: 0, right: 0 }}
+            >
+              <Button
+                onClick={onChangeLanguage("th")}
+                variant={i18n.language === "th" ? "contained" : "outlined"}
+              >
+                ไทย
+              </Button>
+
+              <Button
+                onClick={onChangeLanguage("en")}
+                variant={i18n.language === "en" ? "contained" : "outlined"}
+              >
+                ENG
+              </Button>
+            </ButtonGroup>
+          ) : null}
         </Box>
         <TextField
           color="secondary"
@@ -154,7 +192,7 @@ export default function EmployeeSearch() {
         sx={(theme) => ({
           bgcolor: alpha(theme.palette.primary.main, 0.25),
           my: 5,
-          mx: { xs: 2, sm: 10, lg: 20 },
+          mx: { xs: 2, sm: 8, lg: 15 },
         })}
       >
         <EmployeeLists employees={data} />
