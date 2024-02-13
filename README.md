@@ -52,8 +52,7 @@
   > [**MUI**](https://mui.com/material-ui)
 
 - i18next (Internationalization Framework - เปลี่ยนภาษาด้วย React-I18next)
-  > [**i18next**](https://www.i18next.com)
-  > [**react-i18n**](https://react.i18next.com)
+  > [**i18next**](https://www.i18next.com) & [**react-i18n**](https://react.i18next.com)
 
 - React Spring (Build animations with React)
   > [**react-spring**](https://www.react-spring.dev/)
