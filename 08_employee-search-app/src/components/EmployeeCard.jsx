@@ -138,7 +138,7 @@ export default function EmployeeCard({
                 <strong>Section: </strong>
               </Typography>
             </Grid>
-            <Grid item xs ml={{ xs: 2, md: 0 }}>
+            <Grid item xs ml={{ xs: 2, lg: 0 }}>
               <Typography variant="subtitle2">
                 {section ? section : "N/A"}
               </Typography>
@@ -150,7 +150,7 @@ export default function EmployeeCard({
                 <strong>Department: </strong>
               </Typography>
             </Grid>
-            <Grid item xs ml={{ xs: 2, md: 0 }}>
+            <Grid item xs ml={{ xs: 2 }}>
               <Typography variant="subtitle2">
                 {department ? department : "N/A"}
               </Typography>
@@ -162,7 +162,7 @@ export default function EmployeeCard({
                 <strong>Division: </strong>
               </Typography>
             </Grid>
-            <Grid item xs ml={{ xs: 2, md: 0 }}>
+            <Grid item xs ml={{ xs: 2, lg: 0 }}>
               <Typography variant="subtitle2">
                 {division ? division : "N/A"}
               </Typography>
