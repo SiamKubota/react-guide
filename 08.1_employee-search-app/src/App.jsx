@@ -18,6 +18,26 @@ const components = {
       }
     `,
   },
+  // MuiTextField: {
+  //   variants: [
+  //     {
+  //       props: { size: "extraSmall" },
+  //       style: {
+  //         "& .MuiInputLabel-root": {
+  //           transform: "translate(14px, 6px) scale(1)",
+  //           "&.Mui-focused": {
+  //             transform: "translate(14px, -6px) scale(.75)",
+  //           },
+  //         },
+  //         "& .MuiInputBase-sizeExtraSmall": {
+  //           "& > input": {
+  //             padding: "4px 7px",
+  //           },
+  //         },
+  //       },
+  //     },
+  //   ],
+  // },
 };
 
 const typography = {
