@@ -2,6 +2,7 @@ import { Fragment, useState } from "react";
 import PropTypes from "prop-types";
 
 import { styled } from "@mui/material/styles";
+import Box from "@mui/material/Box";
 import MuiCard from "@mui/material/Card";
 import MuiCardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -12,10 +13,15 @@ import SchemaIcon from "@mui/icons-material/Schema";
 
 import ApprovalHierachyModal from "./ApprovalHierachyModal";
 
-const Card = styled(MuiCard)({
-  display: "flex",
-  alignItems: "center",
-  height: "100%",
+const Card = styled(MuiCard)(({ theme, isAvailabled }) => {
+  return {
+    display: "flex",
+    alignItems: "center",
+    height: "100%",
+    backgroundColor: isAvailabled
+      ? theme.palette.common.white
+      : theme.palette.error.light,
+  };
 });
 
 const CardContent = styled(MuiCardContent)({
@@ -36,6 +42,7 @@ export default function EmployeeCard({
   nickname,
   eid,
   position,
+  isAvailabled,
 }) {
   const [openedModal, setOpenedModal] = useState(false);
 
@@ -49,30 +56,50 @@ export default function EmployeeCard({
 
   return (
     <Fragment>
-      <Card>
-        <CardMedia
-          component="img"
-          image={avatarUrl}
-          alt="employee_avatar"
-          sx={{ objectFit: "contain", width: { xs: 80, sm: 120 } }}
-        />
+      <Card isAvailabled={isAvailabled}>
+        <Box sx={{ position: "relative" }}>
+          <CardMedia
+            component="img"
+            image={avatarUrl}
+            alt="employee_avatar"
+            sx={{ objectFit: "contain", width: { xs: 80, sm: 120 } }}
+          />
+          <Typography
+            color="white"
+            align="center"
+            sx={{
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              width: { xs: 80, sm: 120 },
+              background: (theme) =>
+                `linear-gradient(to top, ${theme.palette.primary.main}, transparent)`,
+              textShadow: (theme) => `1px 1px ${theme.palette.secondary.main}`,
+              pt: 1,
+            }}
+          >
+            {nickname}
+          </Typography>
+        </Box>
         <CardContent>
           <Typography variant="subtitle1">{`${prefix}${name} ${lastname} ${
             nickname ? `(${nickname})` : ""
           }`}</Typography>
           <Typography variant="subtitle2">{eid}</Typography>
           <Typography variant="subtitle2">{position}</Typography>
-          <IconButton
-            onClick={handleOpenModal}
-            sx={{ position: "absolute", bottom: 0, right: 0 }}
-          >
-            <SchemaIcon
-              color="secondary"
-              sx={{
-                transform: "rotate(-90deg)",
-              }}
-            />
-          </IconButton>
+          {isAvailabled && (
+            <IconButton
+              onClick={handleOpenModal}
+              sx={{ position: "absolute", bottom: 0, right: 0 }}
+            >
+              <SchemaIcon
+                color="secondary"
+                sx={{
+                  transform: "rotate(-90deg)",
+                }}
+              />
+            </IconButton>
+          )}
         </CardContent>
       </Card>
 

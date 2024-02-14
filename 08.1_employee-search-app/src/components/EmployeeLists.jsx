@@ -20,6 +20,7 @@ export default function EmployeeLists(props) {
           lastnameTH,
           nicknameTH,
           jobNameTH,
+          stts,
         } = employee;
         return (
           <Grid key={employee.eid} item xs={12} md={6}>
@@ -31,6 +32,7 @@ export default function EmployeeLists(props) {
               lastname={lastnameTH}
               nickname={nicknameTH}
               position={jobNameTH}
+              isAvailabled={stts.toLowerCase() === "a"}
             />
           </Grid>
         );

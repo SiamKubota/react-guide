@@ -214,6 +214,7 @@ export default function ApprovalHierachyModal(props) {
                   }}
                 >
                   <AlternateEmailIcon
+                    fontSize="small"
                     sx={{ color: (theme) => theme.palette.grey[600] }}
                   />
                   <Typography variant="subtitle2">{step.bossEmail}</Typography>
@@ -229,6 +230,7 @@ export default function ApprovalHierachyModal(props) {
                   sx={{ display: "flex", alignItems: "center", columnGap: 1 }}
                 >
                   <BusinessCenterIcon
+                    fontSize="small"
                     sx={{ color: (theme) => theme.palette.grey[600] }}
                   />
                   <Typography variant="subtitle2">

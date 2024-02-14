@@ -71,7 +71,17 @@ export default function EmployeeSearchedPage() {
     api.start({
       to: { y: "0vh" },
     });
-    setData(DT_DIVISION_EMPLOYEES);
+
+    const availabledEmps = DT_DIVISION_EMPLOYEES.filter(
+      (emp) => emp.stts.toLowerCase() === "a"
+    );
+
+    const resignedEmps = DT_DIVISION_EMPLOYEES.filter(
+      (emp) => emp.stts.toLowerCase() === "c"
+    );
+
+    setData([...availabledEmps, ...resignedEmps]);
+    // setData(DT_DIVISION_EMPLOYEES);
   };
 
   // const onClickChangeLanguage = (lang) => () => {
@@ -99,12 +109,16 @@ export default function EmployeeSearchedPage() {
         <Box
           sx={{
             display: "flex",
-            justifyContent: "center",
+            justifyContent: {
+              xs: data.length ? "flex-start" : "center",
+              sm: "center",
+            },
             alignItems: "center",
             columnGap: 2,
           }}
           mt={1}
           mb={2}
+          ml={{ xs: data.length ? 1 : 0, sm: 0 }}
         >
           <GroupsIcon sx={{ fontSize: 48 }} />
           <Typography variant="h4" align="center">
