@@ -17,7 +17,7 @@ import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
 const APPROVAL_HIERACHY = [
   {
-    approverunId: 116357,
+    approverunId: 8900,
     bU1ID: "SKC",
     bU2ID: "SKC|SEVP",
     bU3ID: "SKC|SEVP|DY50000000",
@@ -56,7 +56,7 @@ const APPROVAL_HIERACHY = [
     endDate: null,
   },
   {
-    approverunId: 122067,
+    approverunId: 8901,
     bU1ID: "SKC",
     bU2ID: "SKC|SEVP",
     bU3ID: "SKC|SEVP|DY50000000",
@@ -97,7 +97,7 @@ const APPROVAL_HIERACHY = [
     endDate: null,
   },
   {
-    approverunId: 124257,
+    approverunId: 8902,
     bU1ID: "SKC",
     bU2ID: "SKC|SEVP",
     bU3ID: "SKC|SEVP|DY50000000",
@@ -136,7 +136,7 @@ const APPROVAL_HIERACHY = [
     endDate: null,
   },
   {
-    approverunId: 127106,
+    approverunId: 8903,
     bU1ID: "SKC",
     bU2ID: "SKC|SEVP",
     bU3ID: "SKC|SEVP|DY50000000",
@@ -234,7 +234,9 @@ export default function ApprovalHierachyModal(props) {
                     sx={{ color: (theme) => theme.palette.grey[600] }}
                   />
                   <Typography variant="subtitle2">
-                    {step.bossJobRoleName}
+                    {step.action.toLowerCase() === "main"
+                      ? step.bossJobRoleName
+                      : step.actorJobRoleName}
                   </Typography>
                 </Box>
               </StepContent>

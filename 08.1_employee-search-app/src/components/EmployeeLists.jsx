@@ -19,7 +19,11 @@ export default function EmployeeLists(props) {
           nameTH,
           lastnameTH,
           nicknameTH,
+          email,
           jobNameTH,
+          bU8NameEN,
+          bU6NameEN,
+          bU5NameEN,
           stts,
         } = employee;
         return (
@@ -31,7 +35,11 @@ export default function EmployeeLists(props) {
               name={nameTH}
               lastname={lastnameTH}
               nickname={nicknameTH}
+              email={email}
               position={jobNameTH}
+              section={bU8NameEN}
+              department={bU6NameEN}
+              division={bU5NameEN}
               isAvailabled={stts.toLowerCase() === "a"}
             />
           </Grid>
