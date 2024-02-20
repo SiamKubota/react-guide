@@ -62,7 +62,7 @@ export default function EmployeeCard({
 
   return (
     <Fragment>
-      <Card isAvailabled={isAvailabled}>
+      <Card elevation={4} isAvailabled={isAvailabled}>
         <Box sx={{ position: "relative" }}>
           {/* <CardMedia
             component="img"
@@ -77,20 +77,21 @@ export default function EmployeeCard({
             sx={{
               objectFit: "contain",
               height: "100%",
-              width: { xs: 80, sm: 120 },
+              width: { xs: 80, sm: 130 },
             }}
           >
             <BrokenImageIcon sx={{ fontSize: 100 }} />
           </Avatar>
           {nickname && (
             <Typography
+              variant="subtitle1"
               color="white"
               align="center"
               sx={{
                 position: "absolute",
                 bottom: 0,
                 left: 0,
-                width: { xs: 80, sm: 120 },
+                width: { xs: 80, sm: 130 },
                 background: (theme) =>
                   `linear-gradient(to top, ${
                     isAvailabled
@@ -129,7 +130,7 @@ export default function EmployeeCard({
                 <strong>Department: </strong>
               </Typography>
             </Grid>
-            <Grid item xs ml={2}>
+            <Grid item xs ml={{ xs: 2, lg: 0 }}>
               <Typography variant="subtitle2">
                 {department ? department : "N/A"}
               </Typography>

@@ -98,7 +98,7 @@ export default function EmployeeSearchedPage() {
   return (
     <>
       <SlidedContainer
-        maxWidth="xs"
+        maxWidth="sm"
         isSearching={data.length}
         sx={{
           position: "sticky",
@@ -179,7 +179,7 @@ export default function EmployeeSearchedPage() {
         sx={(theme) => ({
           bgcolor: alpha(theme.palette.primary.main, 0.25),
           my: 5,
-          mx: { xs: 2, sm: 10, lg: 20 },
+          mx: { xs: 2, sm: 8, lg: 15 },
         })}
       >
         <EmployeeLists employees={data} />

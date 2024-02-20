@@ -1,3 +1,12 @@
+import PropTypes from "prop-types";
+import { InteractionType, PublicClientApplication } from "@azure/msal-browser";
+import {
+  MsalProvider,
+  AuthenticatedTemplate,
+  UnauthenticatedTemplate,
+} from "@azure/msal-react";
+import { loginRequest } from "./configs/msal-config";
+
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 
@@ -50,18 +59,36 @@ const theme = createTheme({
   typography,
 });
 
-function App() {
+function App(props) {
+  const { pca } = props;
   return (
-    <>
+    <MsalProvider instance={pca}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <EmployeeSearchedPage />
+        <AuthenticatedTemplate
+          InteractionType={InteractionType.Redirect}
+          authenticationRequest={loginRequest}
+        >
+          <EmployeeSearchedPage />
+        </AuthenticatedTemplate>
+        <UnauthenticatedTemplate>
+          <h1>You need to sign in with Microsoft Authentication first!</h1>
+          <button
+            onClick={async () => {
+              const msalLoginResponse = await pca.loginRedirect(loginRequest);
+              console.log("msalLoginResponse: ", msalLoginResponse);
+            }}
+          >
+            SIGNIN with MSAL
+          </button>
+        </UnauthenticatedTemplate>
       </ThemeProvider>
-    </>
+    </MsalProvider>
   );
 }
 
-{
-  /* <div>Hello World</div> */
-}
+App.propTypes = {
+  pca: PropTypes.instanceOf(PublicClientApplication),
+};
+
 export default App;

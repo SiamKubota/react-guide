@@ -97,6 +97,7 @@ export default function EmployeeCard({
                 position: "absolute",
                 bottom: 0,
                 left: 0,
+                width: { xs: 80, sm: 130 },
                 background: (theme) =>
                   `linear-gradient(to top, ${
                     isAvailabled
@@ -105,7 +106,6 @@ export default function EmployeeCard({
                   }, transparent )`,
                 textShadow: (theme) =>
                   `1px 1px  ${theme.palette.secondary.main}`,
-                width: { xs: 80, sm: 130 },
                 pt: 1,
               }}
             >
@@ -121,9 +121,9 @@ export default function EmployeeCard({
                 sx={{ position: "absolute", bottom: 0, right: 0 }}
               >
                 <SchemaIcon
+                  color="secondary"
                   sx={{
                     transform: "rotate(270deg)",
-                    color: (theme) => theme.palette.secondary.light,
                   }}
                 />
               </IconButton>
@@ -150,7 +150,7 @@ export default function EmployeeCard({
                 <strong>Department: </strong>
               </Typography>
             </Grid>
-            <Grid item xs ml={{ xs: 2 }}>
+            <Grid item xs ml={{ xs: 2, lg: 0 }}>
               <Typography variant="subtitle2">
                 {department ? department : "N/A"}
               </Typography>
